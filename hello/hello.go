@@ -30,11 +30,15 @@ func main() {
 		fmt.Println(greeting)
 	}
 
-	greeting, err = greetings.Hello("")
+	greets, err := greetings.Hellos([]string{"Anton", "Berta", "Caesar", "Dora", "Emil", "Friedrich"})
+
+	for _, pair := range greets {
+		fmt.Println(pair)
+	}
+
+	_, err = greetings.Hellos([]string{""})
 	if err != nil {
 		log.Fatal(err)
-	} else {
-		fmt.Println(greeting)
 	}
 
 	fmt.Println("This line won't excute if a log.Fatal has been called")
